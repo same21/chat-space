@@ -1,7 +1,7 @@
 # README
 ## DataBase design
 
-###Users_Tabele
+###Users_Table
 | id | Name | Email |
 |:--:|:----:|:-----:|
 | 12 | abe  | aa@com|
