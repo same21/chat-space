@@ -51,13 +51,13 @@ create_table:groups do |t|
 t.integer :id  
 t.string  :group_name,null : false  
 
-##Asociation
-user has many relations  
+##Association
+user has many users_groups  
 user has many messages  
-user has many groups, through: :relations  
+user has many groups, through: :users_groups  
   
-group has many relations
-group has many users, through: :relations  
+group has many users_groups
+group has many users, through: :users_groups  
 group has many messages  
   
 message belongs to user  
