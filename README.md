@@ -8,7 +8,7 @@
 
 ###migrate_file
 create_table:users do |t|  
-t.integer :user_id  
+t.integer :id  
 t.string  :name,null : false  
 t.sting   :email,null : false  
 
@@ -23,21 +23,22 @@ t.sting   :email,null : false
 
 ###miglate_file
 create_table:messeges do |t|  
-t.integer :message_id  
-t.text    :body  
-t.text    :image  
-t.reference:user_id  
-t.reference :group_id  
+t.integer   :id  
+t.text      :body  
+t.string    :image  
+t.reference :user, index: true, foreign_key: true  
+t.reference :group, index: true, foreign_key: true  
 
-###Relations_Table
-| User_id | Group_id|
-|:-------:|:-------:|
-| 12      | 10123   |
+###Users_Groups_Table
+| id | User_id | Group_id|
+|:--:|:-------:|:-------:|
+| 11 | 12      | 10123   |
 
 ###Migration_file
-create_table:relations do |t|  
-t.reference :user_id  
-t.reference :group_id  
+create_table:uses_groups do |t|  
+t.integer   :id  
+t.reference :user, index: true, foreign_key: true  
+t.reference :group, index: true, foreign_key: true  
 
 
 ###Groups_Table
@@ -47,7 +48,7 @@ t.reference :group_id
 
 ###migrate_file
 create_table:groups do |t|  
-t.integer :group_id  
+t.integer :id  
 t.string  :group_name,null : false  
 
 ##Asociation
