@@ -2,9 +2,9 @@
 ## DataBase design
 
 ###Users_Tabele
-| User_id | Name | Email |
-|:-------:|:----:|:-----:|
-| 1234    | abe  | aa@com|
+| id | Name | Email |
+|:--:|:----:|:-----:|
+| 12 | abe  | aa@com|
 
 ###migrate_file
 create_table:users do |t|  
@@ -17,25 +17,51 @@ t.sting   :email,null : false
  add_index :users, :user_id  
 
 ###Messages_Table
-| Messege_id | Body  | Image | User_id | Gorup_id |
-|:----------:|:-----:|:-----:|:-------:|:--------:|
-|   56789    | great | a.jpg |  1234   |  10123   |
+| id | Body  | Image | User_id | Gorup_id |
+|:--:|:-----:|:-----:|:-------:|:--------:|
+| 56 | great | a.jpg |  1234   |  10123   |
 
 ###miglate_file
 create_table:messeges do |t|  
 t.integer :message_id  
 t.text    :body  
 t.text    :image  
-t.integer :user_id  
-t.integer :group_id  
+t.reference:user_id  
+t.reference :group_id  
+
+###Relations_Table
+| User_id | Group_id|
+|:-------:|:-------:|
+| 12      | 10123   |
+
+###Migration_file
+create_table:relations do |t|  
+t.reference :user_id  
+t.reference :group_id  
 
 
 ###Groups_Table
-| Group_id | Group_name |
-|:--------:|:----------:|
-|   10123  |  group1    |
+| id | Group_name |
+|:--:|:----------:|
+| 10 |  group1    |
 
 ###migrate_file
 create_table:groups do |t|  
 t.integer :group_id  
 t.string  :group_name,null : false  
+
+##Asociation
+user has many relations  
+user has many messages  
+user has many groups, through: :relations  
+  
+group has many relations
+group has many users, through: :relations  
+group has many messages  
+  
+message belongs to user  
+messege belongs to group  
+  
+relation belongs to group  
+relation belongs to user  
+
