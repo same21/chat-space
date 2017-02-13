@@ -1,0 +1,60 @@
+.right-content{
+  width: calc(100vw - 300px);
+  min-height: calc(100vw - 226px);
+  height: auto !important;
+  background-color: $pale-blue;
+  float: right;
+  margin-top: 137px;
+  .name-date{
+    margin-top: 45px;
+    width: 100%;
+    &__name{
+      font-size: 16px;
+      font-weight: bold;
+      color: $black;
+      margin-left: 40px;
+      float: left;
+    }
+    &__date{
+      margin-left:10px;
+      padding-top: 5px;
+      float: left;
+      color: $light-gray;
+      font-size: 12px;
+    }
+  }
+  .message{
+    height: 100%;
+    width: 100%;
+    float: left;
+    &__text{
+      margin-top: 10px;
+      margin-bottom: 40px;
+      font-size: 14px;
+      color: $black;
+      margin-left: 40px;
+    }
+  }
+}
+
+.left-content{
+  width: 300px;
+  min-height: 890px;
+  height: auto !important;
+  float: left;
+  background-color: $navy;
+  position: fixed;
+  top: 136px;
+  .lists{
+    margin: 0 20px 40px 20px;
+    color: $white;
+    &__group{
+      margin: 20px 0 5px 0;
+      font-size: 15px;
+    }
+    &__message{
+      margin-bottom: 20px;
+      font-size: 11px;
+    }
+  }
+}

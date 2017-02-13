@@ -1,0 +1,53 @@
+footer{
+  width: calc(100vw - 300px);
+  height: 90px;
+  background-color: $gray;
+  position: relative;
+  position: fixed;
+  top: auto;
+  left: auto;
+  right: 0;
+  bottom: 0;
+  .text-box{
+    height: 50px;
+    width: auto;
+    background-color: $white;
+    position: fixed;
+    position: absolute;
+    top: auto;
+    right: 155px;
+    bottom: 20px;
+    left: 40px;
+  }
+    textarea{
+      background-color: $white;
+      width: 90%;
+      height: 37px;
+      color: #434A54;
+      padding-left: 10px;
+      padding-top: 13px;
+      border: none;
+    }
+    i.fa.fa-file-image-o.fa-2x{
+      float: right;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+  .send-box{
+    height: 50px;
+    width: 100px;
+    background-color: $light-blue;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    bottom: 20px;
+    float: right;
+    p.button{
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+      margin-bottom: 11px;
+      margin-top: 11px;
+    }
+  }
+}
