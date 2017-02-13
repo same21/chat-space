@@ -1,0 +1,35 @@
+.wrapper
+  %header.header
+    %ul.header__top
+      %li.header__top__list チャットグループが作成されました。
+    %ul.header__right-lists
+      %li.header__right-lists__current-group sampleグループ
+      %li.header__right-lists__member member : samle example
+      %ul.header__right-lists__editbox
+        %li.header__right-lists__edittbox__edit Edit
+    %ul.header__user
+      %li.header__user__name sample
+      %i.fa.fa-cog
+      %i.fa.fa-pencil-square-o
+  .right-content
+    %ul.right-content__name-date
+      %li.right-content__name-date__name sample date
+      %li.right-content__name-date__date 2017/2/11 14:50:30
+    %ul.right-content__message
+      %li.right-content__message__text hello
+    %ul.right-content__name-date
+      %li.right-content__name-date__name example date
+      %li.right-content__name-date__date 2017/2/11 15:00:00
+    %ul.right-content__message
+      %li.right-content__message__text こんにちわ
+  .left-content
+    %ul.left-content__lists
+      %li.left-content__lists__group sample
+      %li.left-content__lists__message こんにちわ
+
+  %footer.bottom
+    .bottom__text-box
+      %textarea{:cols => "30",:placeholder => "type a message",:rows =>"16"}
+      %i.fa.fa-file-image-o.fa-2x
+    .bottom__send-box
+      %p.bottom__sendbox__send Send
