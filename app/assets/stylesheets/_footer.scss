@@ -1,8 +1,7 @@
-
 footer{
   width: calc(100vw - 300px);
   height: 90px;
-  background-color: #AAAAAA;
+  background-color: $gray;
   position: relative;
   position: fixed;
   top: auto;
@@ -12,7 +11,7 @@ footer{
   .text-box{
     height: 50px;
     width: auto;
-    background-color: white;
+    background-color: $white;
     position: fixed;
     position: absolute;
     top: auto;
@@ -21,7 +20,7 @@ footer{
     left: 40px;
   }
     textarea{
-      background-color: white;
+      background-color: $white;
       width: 90%;
       height: 37px;
       color: #434A54;
@@ -34,7 +33,6 @@ footer{
       margin-top: 10px;
       margin-right: 10px;
     }
-
   .send-box{
     height: 50px;
     width: 100px;
