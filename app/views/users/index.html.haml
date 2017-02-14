@@ -9,8 +9,9 @@
         %li.header-right__edittbox__edit Edit
     %ul.header-user
       %li.header-user__name sample
-      %i.fa.fa-cog
       %i.fa.fa-pencil-square-o
+      = link_to edit_user_registration_path do
+        %i.fa.fa-cog
   .right-content
     %ul.name-date
       %li.name-date__name sample date
