@@ -1,34 +1,35 @@
-.wrapper
-  %header
-    %ul.header-right
-      %li.header-right__current-group sampleグループ
-      %li.header-right__member member : samle example
-      %ul.header-right__editbox
-        %li.header-right__edittbox__edit Edit
-    %ul.header-user
-      %li.header-user__name sample
-      %i.fa.fa-pencil-square-o
-      = link_to edit_user_registration_path do
-        %i.fa.fa-cog
-  .right-content
-    %ul.name-date
-      %li.name-date__name sample date
-      %li.name-date__date 2017/2/11 14:50:30
-    %ul.message
-      %li.message__text hello
-    %ul.name-date
-      %li.name-date__name example date
-      %li.name-date__date 2017/2/11 15:00:00
-    %ul.message
-      %li.message__text こんにちわ
-  .left-content
-    %ul.lists
-      %li.lists__group sample
-      %li.lists__message こんにちわ
 
-  %footer
-    .text-box
-      %textarea{:cols => "30",:placeholder => "type a message",:rows =>"16"}
-      %i.fa.fa-file-image-o.fa-2x
-    .send-box
-      %p.button Send
+%header
+  %ul.header-right
+    %li.header-right__current-group sampleグループ
+    %li.header-right__member member : samle example
+    %ul.header-right__editbox
+      %li.header-right__edittbox__edit Edit
+  %ul.header-user
+    %li.header-user__name sample
+    = link_to new_group_path do
+      %i.fa.fa-pencil-square-o
+    = link_to edit_user_registration_path do
+      %i.fa.fa-cog
+.right-content
+  %ul.name-date
+    %li.name-date__name sample date
+    %li.name-date__date 2017/2/11 14:50:30
+  %ul.message
+    %li.message__text hello
+  %ul.name-date
+    %li.name-date__name example date
+    %li.name-date__date 2017/2/11 15:00:00
+  %ul.message
+    %li.message__text こんにちわ
+.left-content
+  %ul.lists
+    %li.lists__group sample
+    %li.lists__message こんにちわ
+
+%footer
+  .text-box
+    %textarea{:cols => "30",:placeholder => "type a message",:rows =>"16"}
+    %i.fa.fa-file-image-o.fa-2x
+  .send-box
+    %p.button Send
