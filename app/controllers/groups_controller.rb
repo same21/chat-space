@@ -3,10 +3,20 @@ class GroupsController < ApplicationController
 def new
   @group = Group.new
 end
- def create
-  Group.create(group_params)
-  redirect_to controller: :users, action: :index
- end
+
+def create
+  @group = Group.create(group_params)
+  if @group.save
+    redirect_to controller: :users, action: :index,notice: "チャットグループが作成されました。"
+  else
+    flash[:alert] = "チャットグループの作成に失敗しました。"
+    render :new
+    new
+  end
+end
+
+def error
+end
 
 private
 def group_params
