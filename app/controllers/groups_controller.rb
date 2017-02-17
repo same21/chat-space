@@ -11,12 +11,9 @@ def create
   else
     flash[:alert] = "チャットグループの作成に失敗しました。"
     render :new
-    new
   end
 end
 
-def error
-end
 
 private
 def group_params
