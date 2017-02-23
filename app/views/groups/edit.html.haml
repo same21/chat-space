@@ -22,6 +22,4 @@
         -@current_members = current_user.groups.first.users
         =render partial: 'current_member', collection: @current_members
     .chat-group-form__field.clearfix
-      .chat-group-form__field--left
-      .chat-group-form__field--right
-        %input.chat-group-form__action-btn{"data-disable-with" => "Save", :name => "commit", :type => "submit", :value => "Save"}/
+      =render partial: "send_button"

@@ -1,5 +1,10 @@
 class GroupsController < ApplicationController
 
+def set_group
+  @group = Group.find(params[:id])
+end
+
+
 def new
   @group = Group.new
 end
@@ -15,15 +20,15 @@ def create
 end
 
 def edit
-  @group = Group.find(params[:id])
+  set_group
 end
 
 def update
-  group = Group.find(params[:id])
-  if group.user_ids == current_user.id
-  group.update(group_params)
+  set_group
+  if @group.user_ids == current_user.id
+  @group.update(group_params)
   end
-  if group.update(group_params)
+  if @group.update(group_params)
     redirect_to root_path,notice: "チャットグループが編集されました。"
   else
     flash[:alert] = "チャットグループの編集に失敗しました。"
