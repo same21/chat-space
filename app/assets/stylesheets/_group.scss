@@ -65,6 +65,7 @@
       &--right {
         float: right;
         width: 70%;
+        padding-top: 10px;
       }
 
       .chat-group-form__label {
@@ -91,6 +92,8 @@
 
       &__name {
         float: left;
+        padding-left: 5px;
+        padding-top: 10px;
       }
 
       &__btn {

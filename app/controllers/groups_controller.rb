@@ -5,7 +5,7 @@ def new
 end
 
 def create
-  @group = Group.create(group_params)
+  @group = Group.new(group_params)
   if @group.save
     redirect_to root_path,notice: "チャットグループが作成されました。"
   else
@@ -14,10 +14,27 @@ def create
   end
 end
 
+def edit
+  @group = Group.find(params[:id])
+end
+
+def update
+  group = Group.find(params[:id])
+  if group.user_ids == current_user.id
+  group.update(group_params)
+  end
+  if group.update(group_params)
+    redirect_to root_path,notice: "チャットグループが編集されました。"
+  else
+    flash[:alert] = "チャットグループの編集に失敗しました。"
+    render :new
+  end
+end
+
 
 private
-def group_params
-  params.require(:group).permit(:name)
-end
+  def group_params
+    params.require(:group).permit(:name,{user_ids:[]})
+  end
 
 end

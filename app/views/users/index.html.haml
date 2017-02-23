@@ -1,12 +1,15 @@
-
 %header
+
   %ul.header-right
-    %li.header-right__current-group sampleグループ
-    %li.header-right__member member : samle example
-    %ul.header-right__editbox
-      %li.header-right__edittbox__edit Edit
+    %li.header-right__current-group= current_user.name
+    %span.header-right__head member:
+    -@current_groups = current_user.groups.first.users
+    =render partial: 'current_group', collection: @current_groups
+    =link_to edit_group_path(current_user.groups.first) do
+      %ul.header-right__editbox
+        %li.header-right__editbox__edit Edit
   %ul.header-user
-    %li.header-user__name sample
+    %li.header-user__name= current_user.name
     = link_to new_group_path do
       %i.fa.fa-pencil-square-o
     = link_to edit_user_registration_path do
@@ -24,9 +27,8 @@
     %li.message__text こんにちわ
 .left-content
   %ul.lists
-    %li.lists__group sample
-    %li.lists__message こんにちわ
-
+    -@left_contents = current_user.groups
+    =render partial: 'left_content', collection: @left_contents
 %footer
   .text-box
     %textarea{:cols => "30",:placeholder => "type a message",:rows =>"16"}
