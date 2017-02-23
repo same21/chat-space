@@ -4,18 +4,11 @@
     #new_chat_group.new_chat_group
     = form_for @group do |f|
       .chat-group-form__field.clearfix
-        .chat-group-form__field--left
-          =f.label :グループ名, class:'chat-group-form__label'
+        =render partial: 'group-left', locals:{f: f}
         .chat-group-form__field--right
           = f.text_field :name, placeholder: "グループ名を入力して下さい", class: 'chat-group-form__input', id: 'chat_group_name'
       .chat-group-form__field.clearfix
-        .chat-group-form__field--left
-          =f.label :チャットメンバーを追加, class:'chat-group-form__label'
-        .chat-group-form__field--right
-          .chat-group-form__search.clearfix
-            =f.collection_check_boxes :user_ids, User.all, :id, :name do |b|
-              -b.label{b.check_box + b.text}
-          #user-search-result
+        =render partial: 'member-field', locals:{f: f}
       .chat-group-form__field.clearfix
         .chat-group-form__field--left
           =f.label :チャットメンバー, for: "chat_group_チャットメンバー", class: 'chat-group-form__label'
@@ -24,6 +17,5 @@
             #chat-group-user-22.chat-group-user.clearfix
               %input{:name => "chat_group[user_ids][]", :type => "hidden", :value => "22"}/
               %p.chat-group-user__name= current_user.name
-        .chat-group-form__field.clearfix
-          =render partial: "send_button"
+      =render partial: 'send-button'
 

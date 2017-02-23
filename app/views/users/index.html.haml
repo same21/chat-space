@@ -2,7 +2,7 @@
 
   %ul.header-right
     %li.header-right__current-group= current_user.name
-    %span.header-right__head member:
+    %span.header-right__head member :
     -@current_groups = current_user.groups.first.users
     =render partial: 'current_group', collection: @current_groups
     =link_to edit_group_path(current_user.groups.first) do

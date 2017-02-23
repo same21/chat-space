@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
 
+before_action :set_group, only: [:edit,:update]
+
 def set_group
   @group = Group.find(params[:id])
 end
@@ -20,11 +22,9 @@ def create
 end
 
 def edit
-  set_group
 end
 
 def update
-  set_group
   if @group.user_ids == current_user.id
   @group.update(group_params)
   end
