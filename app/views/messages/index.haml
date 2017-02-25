@@ -18,8 +18,7 @@
   -@group_messages = @group.messages
   =render partial: 'group_message', collection: @group_messages
 .left-content
-  -@left_contents = current_user.groups
-  =render partial: 'users/left_content', collection: @left_contents
+  =render @groups
 %footer
   = form_for @message, :url => {:action => :create} do |f|
     .text-box
