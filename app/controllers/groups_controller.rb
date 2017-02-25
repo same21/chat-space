@@ -20,7 +20,6 @@ class GroupsController < ApplicationController
   end
 
   def update
-    if @group.user_ids == current_user.id
     @group.update(group_params)
     end
     if @group.update(group_params)
