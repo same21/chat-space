@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
-  before_action :set_action, only:[:index,:create]
+  before_action :set_group, :set_current_groups, :set_message, only: %i(index create)
+
   def index
   end
 
@@ -16,13 +17,21 @@ class MessagesController < ApplicationController
   end
 
   private
+
     def create_params
      params.require(:message).permit(:body).merge(group_id: params[:group_id], user_id: current_user.id)
     end
 
-    def set_action
-      @message = Message.new
+    def set_group
       @group = Group.find(params[:group_id])
+    end
+
+    def set_current_groups
       @groups = current_user.groups
     end
+
+    def set_message
+      @message = Message.new
+    end
+
 end
