@@ -1,2 +1,7 @@
-%li.lists__group= left_content.name
-%li.lists__message こんにちわ
+=link_to group_messages_path(left_content.id) do
+  %ul.lists
+    %li.lists__group= left_content.name
+    -if left_content.messages.last.nil?
+      %li.lists__message まだメッセージはありません(°▽°)
+    -else
+      %li.lists__message=left_content.messages.last.body

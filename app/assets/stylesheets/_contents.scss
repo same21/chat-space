@@ -1,6 +1,6 @@
 .right-content{
   width: calc(100vw - 300px);
-  min-height: calc(100vw - 226px);
+  min-height: 600px;
   height: auto !important;
   background-color: $pale-blue;
   float: right;
@@ -46,15 +46,19 @@
   position: fixed;
   top: 136px;
   .lists{
-    margin: 0 20px 40px 20px;
+    padding: 0 20px 40px 20px;
     color: $white;
+    text-decoration: none;
     &__group{
-      margin: 20px 0 5px 0;
+      padding: 20px 0 5px 0;
       font-size: 15px;
     }
     &__message{
-      margin-bottom: 20px;
       font-size: 11px;
     }
   }
 }
+ul.lists:hover{
+  background-color: $hover-navy;
+}
+

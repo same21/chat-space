@@ -1,6 +1,7 @@
 header {
   position: fixed;
   width: 100%;
+  border-bottom: thin solid #eeeeee;
   .header-right{
   height: 100%;
   padding-top: 30px;
@@ -8,7 +9,6 @@ header {
   float: right;
   position: relative;
   background-color: $white;
-  border-bottom: thin solid #eeeeee;
     &__current-group {
      width: 100%;
      height: 100%;
