@@ -9,9 +9,9 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to root_path,notice: "チャットグループが作成されました。"
+      redirect_to group_messages_path(@group),notice: "チャットグループが編集されました。"
     else
-      flash[:alert] = "チャットグループの作成に失敗しました。"
+      flash.now[:alert]  = "チャットグループの作成に失敗しました。"
       render :new
     end
   end
@@ -24,15 +24,16 @@ class GroupsController < ApplicationController
     @group.update(group_params)
     end
     if @group.update(group_params)
-      redirect_to root_path,notice: "チャットグループが編集されました。"
+      redirect_to group_messages_path(@group),notice: "チャットグループが編集されました。"
     else
-      flash[:alert] = "チャットグループの編集に失敗しました。"
+      flash.now[:alert] ="チャットグループの編集に失敗しました。"
       render :new
     end
   end
 
 
   private
+
     def group_params
       params.require(:group).permit(:name,{user_ids:[]})
     end

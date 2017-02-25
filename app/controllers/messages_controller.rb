@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 
-  before_action :set_group, :set_current_groups, :set_message, only: %i(index create)
+  before_action :set_group, :set_current_groups, :set_message
 
   def index
   end
