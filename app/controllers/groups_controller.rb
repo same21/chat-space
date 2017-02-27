@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to group_messages_path(@group), notice: "チャットグループが編集されました。"
     else
-      flash.now[:alert]  = "チャットグループの作成に失敗しました。"
+      flash.now[:alert] = "チャットグループの作成に失敗しました。"
       render :new
     end
   end
@@ -20,7 +20,6 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group.update(group_params)
     if @group.update(group_params)
       redirect_to group_messages_path(@group), notice: "チャットグループが編集されました。"
     else
