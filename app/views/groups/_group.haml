@@ -1,0 +1,6 @@
+= link_to group_messages_path(group) do
+  %ul.lists
+    %li.lists__group= group.name
+    %li.lists__message
+      = group.messages.last.try(:body)|| "まだメッセージはありません(°▽°)"
+

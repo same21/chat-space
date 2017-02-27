@@ -1,0 +1,21 @@
+%header
+
+  %ul.header-right
+    %li.header-right__current-group= @group.name
+    %span.header-right__head member :
+    =render partial: 'group_user', collection: @group_users
+    =link_to edit_group_path(@group) do
+      %ul.header-right__editbox
+        %li.header-right__editbox__edit Edit
+  =render partial: '/users/header_user'
+.right-content
+  =render partial: 'group_message', collection: @group_messages
+.left-content
+  =render @groups
+%footer
+  = form_for @message, :url => {:action => :create} do |f|
+    .text-box
+      =f.text_area :body, cols: "30", placeholder: "type a message",rows: "16"
+      %i.fa.fa-file-image-o.fa-2x
+    .send-box
+      =f.submit "Send",class: 'send-box__button'
