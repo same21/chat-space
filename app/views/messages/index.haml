@@ -3,19 +3,12 @@
   %ul.header-right
     %li.header-right__current-group= @group.name
     %span.header-right__head member :
-    -@group_users = @group.users
     =render partial: 'group_user', collection: @group_users
     =link_to edit_group_path(@group) do
       %ul.header-right__editbox
         %li.header-right__editbox__edit Edit
-  %ul.header-user
-    %li.header-user__name= current_user.name
-    = link_to new_group_path do
-      %i.fa.fa-pencil-square-o
-    = link_to edit_user_registration_path do
-      %i.fa.fa-cog
+  =render partial: '/users/header_user'
 .right-content
-  -@group_messages = @group.messages
   =render partial: 'group_message', collection: @group_messages
 .left-content
   =render @groups
