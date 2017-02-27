@@ -15,7 +15,7 @@
 %footer
   = form_for @message, :url => {:action => :create} do |f|
     .text-box
-      =f.text_area :body, :cols =>"30",:placeholder => "type a message",:rows =>"16"
+      =f.text_area :body, cols: "30", placeholder: "type a message",rows: "16"
       %i.fa.fa-file-image-o.fa-2x
     .send-box
       =f.submit "Send",class: 'send-box__button'
