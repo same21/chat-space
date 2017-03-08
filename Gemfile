@@ -22,6 +22,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
+  gem 'faker'
 end
 
 group :development do
@@ -31,10 +32,9 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
   gem 'rails-controller-testing'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'rspec-rails', "~>3.5"
+  gem 'factory_girl_rails', "~>4.4.1"
 end
 
   gem 'haml-rails'
