@@ -8,11 +8,11 @@ class MessagesController < ApplicationController
   def create
     message = Message.new(create_params)
     if message.save
-      new_message = { body: message[:body], user_name: current_user.name, time: message[:created_at].strftime("%Y/%m/%d %H:%M:%S") }
+      new_message = message.convert_into_json
       respond_to do |format|
       format.html { render :index}
       format.json { render json: new_message}
-    end
+      end
     else
       flash.now[:alert] = "メッセージ送信に失敗しました。"
       render :index

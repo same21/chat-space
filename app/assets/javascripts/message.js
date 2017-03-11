@@ -22,7 +22,6 @@ $(function() {
       var html = buildHTML(data);
       $('.chat_message').append(html);
       textField.val('');
-    })
     .fail(function() {
       alert('error');
     });
