@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     message = Message.new(create_params)
     respond_to do |format|
       if message.save
-        new_message = message.convert_into_json
+        new_message = message.to_json
         format.html { render :index}
         format.json { render json: new_message}
       else
