@@ -1,5 +1,5 @@
-%ul.name-date
-    %li.name-date__name=group_message.user.name
-    %li.name-date__date=group_message.created_at.strftime("%Y/%m/%d %H:%M:%S")
-%ul.message
-    %li.message__text=group_message.body
+%li.body
+  .name-date
+    .name-date__name=group_message.user.name
+    .name-date__date=group_message.created_at.strftime("%Y/%m/%d %H:%M:%S")
+  .message=group_message.body

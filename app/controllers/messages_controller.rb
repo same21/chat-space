@@ -6,13 +6,17 @@ class MessagesController < ApplicationController
   end
 
   def create
-    new_message = Message.new(create_params)
-    if new_message.save
-      flash.now[:notice] = "メッセージを送信しました。"
-      render :index
-    else
-      flash.now[:alert] = "メッセージ送信に失敗しました。"
-      render :index
+    message = Message.new(create_params)
+    respond_to do |format|
+      if message.save
+        new_message = message.to_json
+        format.html { render :index}
+        format.json { render json: new_message}
+      else
+        flash.now[:alert] = "メッセージ送信に失敗しました。"
+        format.html { render :index}
+        format.json { render json: false}
+      end
     end
   end
 
