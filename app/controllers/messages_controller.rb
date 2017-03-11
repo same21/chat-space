@@ -6,10 +6,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    new_message = Message.new(create_params)
-    if new_message.save
-      flash.now[:notice] = "メッセージを送信しました。"
-      render :index
+    message = Message.new(create_params)
+    if message.save
+      new_message = { body: message[:body], user_name: current_user.name, time: message[:created_at].strftime("%Y/%m/%d %H:%M:%S") }
+      respond_to do |format|
+      format.html { render :index}
+      format.json { render json: new_message}
+    end
     else
       flash.now[:alert] = "メッセージ送信に失敗しました。"
       render :index
