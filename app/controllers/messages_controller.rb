@@ -7,15 +7,16 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.new(create_params)
-    if message.save
-      new_message = message.convert_into_json
-      respond_to do |format|
-      format.html { render :index}
-      format.json { render json: new_message}
+    respond_to do |format|
+      if message.save
+        new_message = message.convert_into_json
+        format.html { render :index}
+        format.json { render json: new_message}
+      else
+        flash.now[:alert] = "メッセージ送信に失敗しました。"
+        format.html { render :index}
+        format.json { render json: false}
       end
-    else
-      flash.now[:alert] = "メッセージ送信に失敗しました。"
-      render :index
     end
   end
 

@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function(){
   function buildHTML(message) {
     var li = '<li class="body">',
         date = '<div class="name-date"><div class="name-date__name">' + message.user_name + '</div><div class="name-date__date"> ' + message.time +' </div></div>',
@@ -19,11 +19,17 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      var html = buildHTML(data);
+      if (data) {
+        var html = buildHTML(data);
       $('.chat_message').append(html);
       textField.val('');
+      } else {
+        alert("入力しろ！");
+      }
+    })
     .fail(function() {
       alert('error');
     });
   });
 });
+
